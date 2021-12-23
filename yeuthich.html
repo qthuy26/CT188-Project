@@ -1,0 +1,119 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Đơn hàng</title>
+        <link rel="shortcut icon" href="img/logo main.png">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="font-awesome/css/font-awesome.css">
+        <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="./css/cart.css">
+        <link rel="stylesheet" href="./css/search.css">
+        <link rel="stylesheet" href="./css/preloader.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+    <body>
+        <!-- Preloader Codepen by Dave McCarthy -->
+        <!-- https://codepen.io/AsLittleDesign/pen/ZbVVwa-->
+        <div class="wrapper">
+            <div class="loader">
+                <div class="loader--dot"></div>
+                <div class="loader--dot"></div>
+                <div class="loader--dot"></div>
+                <div class="loader--dot"></div>
+                <div class="loader--dot"></div>
+                <div class="loader--dot"></div>
+                <div class="loader--text"></div>
+            </div>
+        </div>
+        <!-- Video background from makebackground.io -->
+        <video loop autoplay muted id="bg-video">
+            <source src="./img/backgrounds/background.webm" type="video/mp4" />
+        </video>
+        <header>
+            <div id="menu-bar" class="fa fa-bars"></div>
+            <a href="./index.html" class="logo"><img src="img/logo main.png" style="width: 60px; height: 50px;"/></a>
+            <nav class="navbar">
+                <a href="./index.html" class="multilang" id="MENU_HOME">TRANG CHỦ</a>
+                <a href="./sanpham.html" class="multilang" id="MENU_PRODUCT">SẢN PHẨM</a>
+                <a href="./dacsac.html" class="multilang" id="MENU_FEATURE">ĐẶC SẮC</a>
+                <a href="./lienhe.html" class="multilang" id="MENU_CONTACT">LIÊN HỆ</a>
+            </nav>
+            <form class="form-search" action="timkiem.html">
+                <input type="search" name="search" placeholder="Tìm kiếm sản phẩm" class="input-search multilang" id="MENU_SEARCH">
+                <a class="icon-search" href="#"><i class="fa fa-search"></i></a>
+                <a class="icon-search-mobile"><i class="fa fa-search"></i></a>
+            </form>
+            <div class="icons">
+                <a href="yeuthich.html"><i class="fa fa-heart"></i></a>
+                <a href="donhang.html"><i class="fa fa-shopping-cart"></i></a>
+                <button class="open-button" onclick="openForm()"><i class="fa fa-user" ></i></button>
+                <div class="form-popup" id="myForm">
+                    <form class="form-container">
+                      <h1 style="text-align: center;" class="multilang" id="SIGN_IN">Đăng Nhập</h1>
+                  
+                      <label for="id"><b class="multilang" id="HEAD_USER_NAME">Tài Khoản</b></label>
+                      <input type="text" placeholder="Nhập Tài Khoản" name="id" required class="multilang" id="CONTENTS_USER_NAME" minlength="8">
+                  
+                      <label for="psw"><b class="multilang" id="HEAD_PASSWORD">Mật Khẩu</b></label>
+                      <input type="password" placeholder="Nhập Mật Khẩu" name="psw" required class="multilang" id="CONTENTS_PASSWORD" minlength="8">
+                  
+                      <button type="submit" class="btn multilang" id="SIGN_IN_BTN">Đăng Nhập</button>
+                      <button type="button" class="btn cancel multilang" onclick="closeForm()" id="CLOSE_BTN">Đóng</button>
+                      <a href="dangky.html" target="_blank"><p style="font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: 15px; text-align: center;" class="multilang" id="SIGN_IN_FOOTER">Chưa có tài khoản? Nhấp để đăng ký.</p></a>
+                    </form>
+                </div>
+            </div>
+            <span id="language">
+                <a href="javascript:void(0)" onclick="changeLang('en-US')"><img src="./img/us.png" alt=""></a>
+                <a href="javascript:void(0)" onclick="changeLang('vi-VN')"><img src="./img/vn.png" alt=""></a>
+            </span>
+        </header>
+        <!--end header-->
+        <section class="container cart">
+            <div class="cart-detail">
+                <div class="row gx-lg-5">
+                    <div class="col-lg-9" style="overflow-x: auto;">
+                        <h1 class="heading multilang" id="FAVORITE_DETAIL">Sản Phẩm Yêu Thích</h1>
+                        <table class="cart-table">
+                            <thead>
+                                <tr>
+                                  <th class="multilang" id="ORDER_IMAGE">Hình SP</th>
+                                  <th colspan="2" class="multilang" id="ORDER_NAME">Tên SP</th>
+                                  <th class="multilang" id="ORDER_PRICE">Giá</th>
+                                  <th class="multilang" id="FAVORITE_SIZE">Kích Thước</th>
+                                  <th></th>
+                                  <th></th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                                
+                              </tbody>
+                              <tfoot>
+                              </tfoot>
+                        </table>
+                    </div>
+                    <div class="col-lg-3 order">
+                        <div class="checkout">
+                            <a href="donhang.html" class="checkout-btn multilang" id="GO_TO_CART">Vào Giỏ Hàng</a>
+                            <a href="sanpham.html" class="continue-shopping multilang" id="ORDER_CONTINUE_SHOPPING">TIẾP TỤC MUA HÀNG</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--end news-->
+        <script src="./js/script.js"></script>
+        <script src="./js/product.js"></script>
+        <script src="./js/labels.js"></script>
+        <script src="./js/sw_lang.js"></script>
+        <script src="./js/toastr_config.js"></script>
+        <script src="./js/add_to_cart.js"></script>
+        <script src="./js/favorite.js"></script>
+        <script src="./js/preloader.js"></script>
+        <script src="./js/search.js"></script>
+    </body>
+</html>

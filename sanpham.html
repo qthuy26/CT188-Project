@@ -1,0 +1,394 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sản Phẩm</title>
+    <link rel="shortcut icon" href="img/logo main.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/search.css">
+    <link rel="stylesheet" href="./css/preloader.css">
+</head>
+<body>
+    <!-- Preloader Codepen by Dave McCarthy -->
+    <!-- https://codepen.io/AsLittleDesign/pen/ZbVVwa-->
+    <div class="wrapper">
+        <div class="loader">
+            <div class="loader--dot"></div>
+            <div class="loader--dot"></div>
+            <div class="loader--dot"></div>
+            <div class="loader--dot"></div>
+            <div class="loader--dot"></div>
+            <div class="loader--dot"></div>
+            <div class="loader--text"></div>
+        </div>
+    </div>
+    <!-- Video background from makebackground.io -->
+    <video loop autoplay muted id="bg-video">
+        <source src="./img/backgrounds/background.webm" type="video/mp4" />
+    </video>
+    <header>
+        <div id="menu-bar" class="fa fa-bars"></div>
+        <a href="./index.html" class="logo"><img src="img/logo main.png" style="width: 60px; height: 50px;"/></a>
+        <nav class="navbar">
+            <a href="./index.html" class="multilang" id="MENU_HOME">TRANG CHỦ</a>
+            <a href="./sanpham.html" class="multilang" id="MENU_PRODUCT">SẢN PHẨM</a>
+            <a href="./dacsac.html" class="multilang" id="MENU_FEATURE">ĐẶC SẮC</a>
+            <a href="./lienhe.html" class="multilang" id="MENU_CONTACT">LIÊN HỆ</a>
+        </nav>
+        <form class="form-search" action="timkiem.html">
+            <input type="search" name="search" placeholder="Tìm kiếm sản phẩm" class="input-search multilang" id="MENU_SEARCH">
+            <a class="icon-search" href="#"><i class="fa fa-search"></i></a>
+            <a class="icon-search-mobile"><i class="fa fa-search"></i></a>
+        </form>
+        <div class="icons">
+            <a href="yeuthich.html"><i class="fa fa-heart"></i></a>
+            <a href="donhang.html"><i class="fa fa-shopping-cart"></i></a>
+            <button class="open-button" onclick="openForm()"><i class="fa fa-user" ></i></button>
+            <div class="form-popup" id="myForm">
+                <form class="form-container">
+                  <h1 style="text-align: center;" class="multilang" id="SIGN_IN">Đăng Nhập</h1>
+              
+                  <label for="id"><b class="multilang" id="HEAD_USER_NAME">Tài Khoản</b></label>
+                  <input type="text" placeholder="Nhập Tài Khoản" name="id" required class="multilang" id="CONTENTS_USER_NAME" minlength="8">
+              
+                  <label for="psw"><b class="multilang" id="HEAD_PASSWORD">Mật Khẩu</b></label>
+                  <input type="password" placeholder="Nhập Mật Khẩu" name="psw" required class="multilang" id="CONTENTS_PASSWORD" minlength="8">
+              
+                  <button type="submit" class="btn multilang" id="SIGN_IN_BTN">Đăng Nhập</button>
+                  <button type="button" class="btn cancel multilang" onclick="closeForm()" id="CLOSE_BTN">Đóng</button>
+                  <a href="dangky.html" target="_blank"><p style="font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: 15px; text-align: center;" class="multilang" id="SIGN_IN_FOOTER">Chưa có tài khoản? Nhấp để đăng ký.</p></a>
+                </form>
+            </div>
+        </div>
+        <span id="language">
+            <a href="javascript:void(0)" onclick="changeLang('en-US')"><img src="./img/us.png" alt=""></a>
+            <a href="javascript:void(0)" onclick="changeLang('vi-VN')"><img src="./img/vn.png" alt=""></a>
+        </span>
+    </header>
+    <section>
+    </section>
+    <section>
+    </section>
+    <section class="product" id="product">
+        <h1 class="heading multilang" id="LATEST_PRODUCT">latest <span>Products</span></h1>
+        <section><h3 style="font-size: 50px; text-align: center; text-decoration: underline;">NIKE</h3></section> 
+        <div class="box-container">
+            <div class="box">
+                <div class="icons">
+                    <a class="fa fa-heart" onclick="addToFavorite('sp001')"></a>
+                    <a href="#" class="fa fa-share"></a>
+                    <a href="#" class="fa fa-eye"></a>
+                    <a class="fa fa-cart-plus" onclick="addCart('sp001', this.parentNode.nextElementSibling)"></a>
+                </div>
+                <div class="content">
+                    <img src="img/product4/5.jpg" alt="">
+                    <h3>Nike ZOOM V2</h3>
+                    <div class="price">$150 <span>$200</span></div>
+                    <div class="select">
+                        <select name="size" class="size">
+                            <option selected disabled>CHOOSE SIZE </option>
+                            <option value="39">39</option>
+                            <option value="40">40</option>
+                            <option value="41">41</option>
+                            <option value="42">42</option>
+                            <option value="43">43</option>
+                            <option value="44">44</option>
+                        </select>
+                    </div>
+                    <div class="stars">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <div class="icons">
+                    <a class="fa fa-heart" onclick="addToFavorite('sp002')"></a>
+                    <a href="#" class="fa fa-share"></a>
+                    <a href="#" class="fa fa-eye"></a>
+                    <a class="fa fa-cart-plus" onclick="addCart('sp002', this.parentNode.nextElementSibling)"></a>
+                </div>
+                <div class="content">
+                    <img src="img/product4/7.png" alt="">
+                    <h3>Nike SB FOR SKATE</h3>
+                    <div class="price">$150 <span>$200</span></div>
+                    <div class="select">
+                        <select name="size" class="size">
+                            <option selected disabled>CHOOSE SIZE </option>
+                            <option value="39">39</option>
+                            <option value="40">40</option>
+                            <option value="41">41</option>
+                            <option value="42">42</option>
+                            <option value="43">43</option>
+                            <option value="44">44</option>
+                        </select>
+                    </div>
+                    <div class="stars">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <div class="icons">
+                    <a class="fa fa-heart" onclick="addToFavorite('sp003')"></a>
+                    <a href="#" class="fa fa-share"></a>
+                    <a href="#" class="fa fa-eye"></a>
+                    <a class="fa fa-cart-plus" onclick="addCart('sp003', this.parentNode.nextElementSibling)"></a>
+                </div>
+                <div class="content">
+                    <img src="img/product4/8.png" alt="">
+                    <h3>Nike SB FOR SKATE</h3>
+                    <div class="price">$150 <span>$200</span></div>
+                    <div class="select">
+                        <select name="size" class="size">
+                            <option selected disabled>CHOOSE SIZE </option>
+                            <option value="39">39</option>
+                            <option value="40">40</option>
+                            <option value="41">41</option>
+                            <option value="42">42</option>
+                            <option value="43">43</option>
+                            <option value="44">44</option>
+                        </select>
+                    </div>
+                    <div class="stars">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section><h1 style="font-size: 50px; text-align: center; text-decoration: underline;">ADIDAS</h1></section>
+        <div class="box-container">
+            <div class="box">
+                <div class="icons">
+                    <a class="fa fa-heart" onclick="addToFavorite('sp004')"></a>
+                    <a href="#" class="fa fa-share"></a>
+                    <a href="#" class="fa fa-eye"></a>
+                    <a class="fa fa-cart-plus" onclick="addCart('sp004', this.parentNode.nextElementSibling)"></a>
+                </div>
+                <div class="content">
+                    <img src="img/product4/10.png" alt="">
+                    <h3>ADIDAS ULTRALBOOTS 2.0</h3>
+                    <div class="price">$150 <span>$200</span></div>
+                    <div class="select">
+                        <select name="size" class="size">
+                            <option selected disabled>CHOOSE SIZE </option>
+                            <option value="39">39</option>
+                            <option value="40">40</option>
+                            <option value="41">41</option>
+                            <option value="42">42</option>
+                            <option value="43">43</option>
+                            <option value="44">44</option>
+                        </select>
+                    </div>
+                    <div class="stars">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <div class="icons">
+                    <a class="fa fa-heart" onclick="addToFavorite('sp005')"></a>
+                    <a href="#" class="fa fa-share"></a>
+                    <a href="#" class="fa fa-eye"></a>
+                    <a class="fa fa-cart-plus" onclick="addCart('sp005', this.parentNode.nextElementSibling)"></a>
+                </div>
+                <div class="content">
+                    <img src="img/product4/12.png" alt="">
+                    <h3>ADIDAS YEEZY 350 V3</h3>
+                    <div class="price">$150 <span>$200</span></div>
+                    <div class="select">
+                        <select name="size" class="size">
+                            <option selected disabled>CHOOSE SIZE </option>
+                            <option value="39">39</option>
+                            <option value="40">40</option>
+                            <option value="41">41</option>
+                            <option value="42">42</option>
+                            <option value="43">43</option>
+                            <option value="44">44</option>
+                        </select>
+                    </div>
+                    <div class="stars">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <div class="icons">
+                    <a class="fa fa-heart" onclick="addToFavorite('sp006')"></a>
+                    <a href="#" class="fa fa-share"></a>
+                    <a href="#" class="fa fa-eye"></a>
+                    <a class="fa fa-cart-plus" onclick="addCart('sp006', this.parentNode.nextElementSibling)"></a>
+                </div>
+                <div class="content">
+                    <img src="img/product4/13.png" alt="">
+                    <h3>ADIDAS YEEZY 350 V3 CREAM</h3>
+                    <div class="price">$150 <span>$200</span></div>
+                    <div class="select">
+                        <select name="size" class="size">
+                            <option selected disabled>CHOOSE SIZE </option>
+                            <option value="39">39</option>
+                            <option value="40">40</option>
+                            <option value="41">41</option>
+                            <option value="42">42</option>
+                            <option value="43">43</option>
+                            <option value="44">44</option>
+                        </select>
+                    </div>
+                    <div class="stars">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section><h1 style="font-size: 50px; text-align: center; text-decoration: underline;">REEBOK</h1></section>
+        <div class="box-container">
+            <div class="box">
+                <div class="icons">
+                    <a class="fa fa-heart" onclick="addToFavorite('sp007')"></a>
+                    <a href="#" class="fa fa-share"></a>
+                    <a href="#" class="fa fa-eye"></a>
+                    <a class="fa fa-cart-plus" onclick="addCart('sp007', this.parentNode.nextElementSibling)"></a>
+                </div>
+                <div class="content">
+                    <img src="img/product4/1.jpg" alt="">
+                    <h3>REEBOK CLUB C85</h3>
+                    <div class="price">$130 <span>$190</span></div>
+                    <div class="select">
+                        <select name="size" class="size">
+                            <option selected disabled>CHOOSE SIZE </option>
+                            <option value="39">39</option>
+                            <option value="40">40</option>
+                            <option value="41">41</option>
+                            <option value="42">42</option>
+                            <option value="43">43</option>
+                            <option value="44">44</option>
+                        </select>
+                    </div>
+                    <div class="stars">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <div class="icons">
+                    <a class="fa fa-heart" onclick="addToFavorite('sp008')"></a>
+                    <a href="#" class="fa fa-share"></a>
+                    <a href="#" class="fa fa-eye"></a>
+                    <a class="fa fa-cart-plus" onclick="addCart('sp008', this.parentNode.nextElementSibling)"></a>
+                </div>
+                <div class="content">
+                    <img src="img/product4/2.jpg" alt="">
+                    <h3>REEBOK CLUB C88</h3>
+                    <div class="price">$165 <span>$200</span></div>
+                    <div class="select">
+                        <select name="size" class="size">
+                            <option selected disabled>CHOOSE SIZE </option>
+                            <option value="39">39</option>
+                            <option value="40">40</option>
+                            <option value="41">41</option>
+                            <option value="42">42</option>
+                            <option value="43">43</option>
+                            <option value="44">44</option>
+                        </select>
+                    </div>
+                    <div class="stars">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <div class="icons">
+                    <a class="fa fa-heart" onclick="addToFavorite('sp009')"></a>
+                    <a href="#" class="fa fa-share"></a>
+                    <a href="#" class="fa fa-eye"></a>
+                    <a class="fa fa-cart-plus" onclick="addCart('sp009', this.parentNode.nextElementSibling)"></a>
+                </div>
+                <div class="content">
+                    <img src="img/product4/3.jpg" alt="">
+                    <h3>REEBOK CLUB C98</h3>
+                    <div class="price">$180 <span>$200</span></div>
+                    <div class="select">
+                        <select name="size" class="size">
+                            <option selected disabled>CHOOSE SIZE </option>
+                            <option value="39">39</option>
+                            <option value="40">40</option>
+                            <option value="41">41</option>
+                            <option value="42">42</option>
+                            <option value="43">43</option>
+                            <option value="44">44</option>
+                        </select>
+                    </div>
+                    <div class="stars">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--end product-->
+    <section class="news" id="news">
+        <div class="content">
+            <h3 class="multilang" id="HEAD_NEWS_UPDATE">CẬP NHẬT TIN TỨC HẰNG TUẦN</h3>
+            <p class="multilang" id="CONTENTS_NEWS_UPDATE">
+                NẾU BẠN MUỐN NHẬN ĐƯỢC THÔNG TIN SỚM VỀ NHỮNG MẶT HÀNG BẠN YÊU THÍCH.
+                NHỮNG MẶT HÀNG MỚI, CÓ THỂ ĐỂ LẠI EMAIL DƯỚI ĐẤY !! 
+            </p>
+            <form action="">
+                <input type="email" placeholder="Vui lòng nhập email tại đây" class="email multilang" id="PLACEHOLDER_EMAIL">
+                <input type="submit" value="save" class="btn">
+            </form>
+        </div>
+    </section>
+    <script src="./js/script.js"></script>
+    <script src="./js/toastr_config.js"></script>
+    <script src="./js/add_to_cart.js"></script>
+    <script src="./js/product.js"></script>
+    <script src="./js/labels.js"></script>
+    <script src="./js/sw_lang.js"></script>
+    <script src="./js/add_to_favorite.js"></script>
+    <script src="./js/preloader.js"></script>
+    <script src="./js/search.js"></script>
+</body>
+</html>

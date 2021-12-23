@@ -1,0 +1,202 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Trang Chủ</title>
+        <link rel="shortcut icon" href="img/logo main.png">
+        <link rel="stylesheet" href="font-awesome/css/font-awesome.css">
+        <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="./css/search.css">
+        <link rel="stylesheet" href="./css/preloader.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    </head>
+    <body>
+        <!-- Preloader Codepen by Dave McCarthy -->
+        <!-- https://codepen.io/AsLittleDesign/pen/ZbVVwa-->
+        <div class="wrapper">
+            <div class="loader">
+                <div class="loader--dot"></div>
+                <div class="loader--dot"></div>
+                <div class="loader--dot"></div>
+                <div class="loader--dot"></div>
+                <div class="loader--dot"></div>
+                <div class="loader--dot"></div>
+                <div class="loader--text"></div>
+            </div>
+        </div>
+        <!-- Video background from makebackground.io -->
+        <video loop autoplay muted id="bg-video">
+            <source src="./img/backgrounds/background.webm" type="video/mp4" />
+        </video>
+        <header>
+            <div id="menu-bar" class="fa fa-bars"></div>
+            <a href="./index.html" class="logo"><img src="img/logo main.png" style="width: 60px; height: 50px;"/></a>
+            <nav class="navbar">
+                <a href="./index.html" class="multilang" id="MENU_HOME">TRANG CHỦ</a>
+                <a href="./sanpham.html" class="multilang" id="MENU_PRODUCT">SẢN PHẨM</a>
+                <a href="./dacsac.html" class="multilang" id="MENU_FEATURE">ĐẶC SẮC</a>
+                <a href="./lienhe.html" class="multilang" id="MENU_CONTACT">LIÊN HỆ</a>
+            </nav>
+            <form class="form-search" action="timkiem.html">
+                <input type="search" name="search" placeholder="Tìm kiếm sản phẩm" class="input-search multilang" id="MENU_SEARCH">
+                <a class="icon-search" href="#"><i class="fa fa-search"></i></a>
+                <a class="icon-search-mobile"><i class="fa fa-search"></i></a>
+            </form>
+            <div class="icons">
+                <a href="yeuthich.html"><i class="fa fa-heart"></i></a>
+                <a href="donhang.html"><i class="fa fa-shopping-cart"></i></a>
+                <button class="open-button" onclick="openForm()"><i class="fa fa-user" ></i></button>
+                <div class="form-popup" id="myForm">
+                    <form class="form-container">
+                      <h1 style="text-align: center;" class="multilang" id="SIGN_IN">Đăng Nhập</h1>
+                  
+                      <label for="id"><b class="multilang" id="HEAD_USER_NAME">Tài Khoản</b></label>
+                      <input type="text" placeholder="Nhập Tài Khoản" name="id" required class="multilang" id="CONTENTS_USER_NAME" minlength="8">
+                  
+                      <label for="psw"><b class="multilang" id="HEAD_PASSWORD">Mật Khẩu</b></label>
+                      <input type="password" placeholder="Nhập Mật Khẩu" name="psw" required class="multilang" id="CONTENTS_PASSWORD" minlength="8">
+                  
+                      <button type="submit" class="btn multilang" id="SIGN_IN_BTN">Đăng Nhập</button>
+                      <button type="button" class="btn cancel multilang" onclick="closeForm()" id="CLOSE_BTN">Đóng</button>
+                      <a href="dangky.html" target="_blank"><p style="font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: 15px; text-align: center;" class="multilang" id="SIGN_IN_FOOTER">Chưa có tài khoản? Nhấp để đăng ký.</p></a>
+                    </form>
+                </div>
+            </div>
+            <span id="language">
+                <a href="javascript:void(0)" onclick="changeLang('en-US')"><img src="./img/us.png" alt="US"></a>
+                <a href="javascript:void(0)" onclick="changeLang('vi-VN')"><img src="./img/vn.png" alt="VN"></a>
+            </span>
+        </header>
+        <section class="home" id="home">
+            <div class="slide-container active">
+                <div class="slide">
+                    <div class="content">
+                        <span class="multilang" id="HEAD_NIKE_SNEAKER">GIÀY NIKE</span>
+                        <h3>Nike BLAZER</h3>
+                        <p class="multilang" id="CONTENTS_DETAIL_NIKE_BLAZER">
+                            Nike Blazer được phát hành lần đầu tiên vào năm 1973, là bước ngoặt đầu tiên khi mà Nike chính thức phát hành một sản phẩm dành riên cho vận động viên Bóng rổ. 
+                            Trải qua gần 50 năm lịch sử, mẫu giày Blazer hiện đại đã có chút nhiều thay đổi và thành công hơn nhiều với các bản Collab Sacai x Blazer Mid, OFF-WHITE x Blazer Mid, Steven Harrington x Blazer Low.
+                        </p>
+                        <a class="btn multilang" id="ADD_TO_CART" onclick="addCart('sp010', this.nextElementSibling)" style="width: 220px; text-align: center;">ĐẶT NGAY</a>
+                        <div class="select" style="margin-top: 2%; width: 39%; text-align: center;">
+                            <select name="size" class="size">
+                                <option selected disabled>CHOOSE SIZE </option>
+                                <option value="39">39</option>
+                                <option value="40">40</option>
+                                <option value="41">41</option>
+                                <option value="42">42</option>
+                                <option value="43">43</option>
+                                <option value="44">44</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="image">
+                        <img src="img/slide/1.png" class="shoe">
+                    </div>
+                </div>
+            </div>
+            <div class="slide-container">
+                <div class="slide">
+                    <div class="content">
+                        <span class="multilang" id="HEAD_NIKE_SNEAKER_1">Nike Sneaker</span>
+                        <h3>Nike SB DUNK X Travis Scott</h3>
+                        <p class="multilang" id="CONTENTS_DETAIL_NIKE_SB_DUNK">
+                            Với những bản collab siêu cháy như Air Jordan 1 và Air Force 1 của anh ấy đã đến được với bộ sưu tập và trái tim của chúng tôi vào năm ngoái, không có gì ngăn cản được Travis Scott và có vẻ như anh ấy sẽ không nghỉ ngơi bất cứ lúc nào ngay sau khi ra mắt Travis Scott x Nike SB Dunk Low Cactus Jack.
+                        </p>
+                        <a class="btn multilang" id="ADD_TO_CART" onclick="addCart('sp011', this.nextElementSibling)" style="width: 220px; text-align: center;">ĐẶT NGAY</a>
+                        <div class="select" style="margin-top: 2%; width: 39%; text-align: center;">
+                            <select name="size" class="size">
+                                <option selected disabled>CHOOSE SIZE </option>
+                                <option value="39">39</option>
+                                <option value="40">40</option>
+                                <option value="41">41</option>
+                                <option value="42">42</option>
+                                <option value="43">43</option>
+                                <option value="44">44</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="image">
+                        <img src="img/slide/2.png" class="shoe">
+                    </div>
+                </div>
+            </div>
+            <div class="slide-container">
+                <div class="slide">
+                    <div class="content">
+                        <span class="multilang" id="HEAD_NIKE_SNEAKER_2">Giày thể thao Nike</span>
+                        <h3>Nike Air Force 1</h3>
+                        <p class="multilang" id="CONTENTS_DETAIL_NIKE_AIR_FORCE">
+                            Một trong những dòng giày đã trở thành biểu tượng cho Nike phải nói đến là Air Force 1. Ra đời vào năm 1982, đôi sneakers sở hữu một lượng lớn fans hâm mộ. Trải qua hơn 35 năm, dòng giày nhân được nhiều sự biến đổi từ màu sắc đến chất liệu. Đồng thời có mặt cả trong những thiết kế collab đình đám.</p>
+                        <a class="btn multilang" id="ADD_TO_CART" onclick="addCart('sp012', this.nextElementSibling)" style="width: 220px; text-align: center;">ĐẶT NGAY</a>
+                        <div class="select" style="margin-top: 2%; width: 39%; text-align: center;">
+                            <select name="size" class="size">
+                                <option selected disabled>CHOOSE SIZE </option>
+                                <option value="39">39</option>
+                                <option value="40">40</option>
+                                <option value="41">41</option>
+                                <option value="42">42</option>
+                                <option value="43">43</option>
+                                <option value="44">44</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="image">
+                        <img src="img/slide/3.png" class="shoe">
+                    </div>
+                </div>
+            </div>
+            <div class="slide-container">
+                <div class="slide">
+                    <div class="content">
+                        <span class="multilang" id="HEAD_VANS">Giày Thể Thao Vans</span>
+                        <h3>Vans Old Skool</h3>
+                        <p class="multilang" id="CONTENTS_DETAIL_VANS_OLD_SKOOL">
+                            Giày Vans Old Skool là giày trượt patin đầu tiên của Vans kết hợp các tấm da để tăng cường độ bền, đáng chú ý là ngón chân bằng da lộn của hình bóng. Vans #36 đã được phát hành trong ba màu không giới hạn vào năm '77, với một trong số đó là phiên bản màu xanh hoàng gia bền bỉ được đeo bởi Stacy Peralta.</p>
+                        <a class="btn multilang" id="ADD_TO_CART" onclick="addCart('sp013', this.nextElementSibling)" style="width: 220px; text-align: center;">ĐẶT NGAY</a>
+                        <div class="select" style="margin-top: 2%; width: 39%; text-align: center;">
+                            <select name="size" class="size">
+                                <option selected disabled>CHOOSE SIZE </option>
+                                <option value="39">39</option>
+                                <option value="40">40</option>
+                                <option value="41">41</option>
+                                <option value="42">42</option>
+                                <option value="43">43</option>
+                                <option value="44">44</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="image">
+                        <img src="img/slide/4.png" class="shoe">
+                    </div>
+                </div>
+            </div>
+
+            <div id="prev" class="fa fa-angle-left" onclick="prev();"></div>
+            <div id="next" class="fa fa-angle-right" onclick="next();"></div>
+        </section>
+        <section class="news" id="news">
+            <div class="content">
+                <h3 class="multilang" id="HEAD_NEWS_UPDATE">CẬP NHẬT TIN TỨC HẰNG TUẦN</h3>
+                <p class="multilang" id="CONTENTS_NEWS_UPDATE">
+                    NẾU BẠN MUỐN NHẬN ĐƯỢC THÔNG TIN SỚM VỀ NHỮNG MẶT HÀNG BẠN YÊU THÍCH.
+                    NHỮNG MẶT HÀNG MỚI, CÓ THỂ ĐỂ LẠI EMAIL DƯỚI ĐẤY !! 
+                </p>
+                <form action="">
+                    <input type="email" placeholder="Vui lòng nhập email tại đây" class="email multilang" id="PLACEHOLDER_EMAIL">
+                    <input type="submit" value="save" class="btn">
+                </form>
+            </div>
+        </section>
+        <script src="./js/script.js"></script>
+        <script src="./js/search.js"></script>
+        <script src="./js/labels.js"></script>
+        <script src="./js/toastr_config.js"></script>
+        <script src="./js/add_to_cart.js"></script>
+        <script src="./js/sw_lang.js"></script>
+        <script src="./js/preloader.js"></script>
+    </body>
+</html>

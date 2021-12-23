@@ -1,0 +1,341 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đặc Sắc</title>
+    <link rel="shortcut icon" href="img/logo main.png">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/search.css">
+    <link rel="stylesheet" href="./css/preloader.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <!-- Preloader Codepen by Dave McCarthy -->
+    <!-- https://codepen.io/AsLittleDesign/pen/ZbVVwa-->
+    <div class="wrapper">
+        <div class="loader">
+            <div class="loader--dot"></div>
+            <div class="loader--dot"></div>
+            <div class="loader--dot"></div>
+            <div class="loader--dot"></div>
+            <div class="loader--dot"></div>
+            <div class="loader--dot"></div>
+            <div class="loader--text"></div>
+        </div>
+    </div>
+    <!-- Video background from makebackground.io -->
+    <video loop autoplay muted id="bg-video">
+        <source src="./img/backgrounds/background.webm" type="video/mp4" />
+    </video>
+    <header>
+        <div id="menu-bar" class="fa fa-bars"></div>
+        <a href="./index.html" class="logo"><img src="img/logo main.png" style="width: 60px; height: 50px;"/></a>
+        <nav class="navbar">
+            <a href="./index.html" class="multilang" id="MENU_HOME">TRANG CHỦ</a>
+            <a href="./sanpham.html" class="multilang" id="MENU_PRODUCT">SẢN PHẨM</a>
+            <a href="./dacsac.html" class="multilang" id="MENU_FEATURE">ĐẶC SẮC</a>
+            <a href="./lienhe.html" class="multilang" id="MENU_CONTACT">LIÊN HỆ</a>
+        </nav>
+        <form class="form-search" action="timkiem.html">
+            <input type="search" name="search" placeholder="Tìm kiếm sản phẩm" class="input-search multilang" id="MENU_SEARCH">
+            <a class="icon-search" href="#"><i class="fa fa-search"></i></a>
+            <a class="icon-search-mobile"><i class="fa fa-search"></i></a>
+        </form>
+        <div class="icons">
+            <a href="yeuthich.html"><i class="fa fa-heart"></i></a>
+            <a href="donhang.html"><i class="fa fa-shopping-cart"></i></a>
+            <button class="open-button" onclick="openForm()"><i class="fa fa-user" ></i></button>
+            <div class="form-popup" id="myForm">
+                <form class="form-container">
+                  <h1 style="text-align: center;" class="multilang" id="SIGN_IN">Đăng Nhập</h1>
+              
+                  <label for="id"><b class="multilang" id="HEAD_USER_NAME">Tài Khoản</b></label>
+                  <input type="text" placeholder="Nhập Tài Khoản" name="id" required class="multilang" id="CONTENTS_USER_NAME" minlength="8">
+              
+                  <label for="psw"><b class="multilang" id="HEAD_PASSWORD">Mật Khẩu</b></label>
+                  <input type="password" placeholder="Nhập Mật Khẩu" name="psw" required class="multilang" id="CONTENTS_PASSWORD" minlength="8">
+              
+                  <button type="submit" class="btn multilang" id="SIGN_IN_BTN">Đăng Nhập</button>
+                  <button type="button" class="btn cancel multilang" onclick="closeForm()" id="CLOSE_BTN">Đóng</button>
+                  <a href="dangky.html" target="_blank"><p style="font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: 15px; text-align: center;" class="multilang" id="SIGN_IN_FOOTER">Chưa có tài khoản? Nhấp để đăng ký.</p></a>
+                </form>
+            </div>
+        </div>
+        <span id="language">
+            <a href="javascript:void(0)" onclick="changeLang('en-US')"><img src="./img/us.png" alt=""></a>
+            <a href="javascript:void(0)" onclick="changeLang('vi-VN')"><img src="./img/vn.png" alt=""></a>
+        </span>
+    </header>
+    <section>
+    </section>
+    <section>
+    </section>
+    <section class="featured" id="fearured">
+        <h1 class="heading multilang" id="LIMITED_PRODUCT">Sản phẩm <span>Giới hạn</span></h1>
+        <div class="row">
+            <div class="image-container">
+                <div class="small-image">
+                    <img src="img/product1/1.jpg" alt="" class="featured-image-1">
+                    <img src="img/product1/2.jpg" alt="" class="featured-image-1">
+                    <img src="img/product1/3.jpg" alt="" class="featured-image-1">
+                    <img src="img/product1/4.jpg" alt="" class="featured-image-1">
+                </div>
+                <div class="big-image">
+                    <img src="img/product1/1.jpg" alt="" class="big-image-1">
+                </div>
+            </div>
+            <div class="content">
+                <h3>new nike airmac shoes</h3>
+                <div class="stars">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </div>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Fugit officiis omnis quo laboriosam velit culpa ex illo, error enim nostrum?
+                </p>
+                <div class="price">$90 <span>$120</span></div>
+                <div class="select" style="text-align: center;">
+                    <select name="size" class="size">
+                        <option selected disabled>CHOOSE SIZE </option>
+                        <option value="39">39</option>
+                        <option value="40">40</option>
+                        <option value="41">41</option>
+                        <option value="42">42</option>
+                        <option value="43">43</option>
+                        <option value="44">44</option>
+                    </select>
+                </div>
+                <a class="btn multilang" id="ADD_TO_CART" onclick="addCart('sp014', this.previousSibling.parentNode)" style="width: 220px; text-align: center;">add to cart</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="image-container">
+                <div class="small-image">
+                    <img src="img/product2/1.jpg" alt="" class="featured-image-2">
+                    <img src="img/product2/2.jpg" alt="" class="featured-image-2">
+                    <img src="img/product2/3.jpg" alt="" class="featured-image-2">
+                    <img src="img/product2/4.jpg" alt="" class="featured-image-2">
+                </div>
+                <div class="big-image">
+                    <img src="img/product2/1.jpg" alt="" class="big-image-2">
+                </div>
+            </div>
+            <div class="content">
+                <h3>new nike airmac shoes</h3>
+                <div class="stars">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </div>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Fugit officiis omnis quo laboriosam velit culpa ex illo, error enim nostrum?
+                </p>
+                <div class="price">$90 <span>$120</span></div>
+                <div class="select" style="text-align: center;">
+                    <select name="size" class="size">
+                        <option selected disabled>CHOOSE SIZE </option>
+                        <option value="39">39</option>
+                        <option value="40">40</option>
+                        <option value="41">41</option>
+                        <option value="42">42</option>
+                        <option value="43">43</option>
+                        <option value="44">44</option>
+                    </select>
+                </div>
+                <a class="btn multilang" id="ADD_TO_CART" onclick="addCart('sp015', this.previousSibling.parentNode)" style="width: 220px; text-align: center;">add to cart</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="image-container">
+                <div class="small-image">
+                    <img src="img/product3/1.jpg" alt="" class="featured-image-3">
+                    <img src="img/product3/2.jpg" alt="" class="featured-image-3">
+                    <img src="img/product3/3.jpg" alt="" class="featured-image-3">
+                    <img src="img/product3/4.jpg" alt="" class="featured-image-3">
+                </div>
+                <div class="big-image">
+                    <img src="img/product3/1.jpg" alt="" class="big-image-3">
+                </div>
+            </div>
+            <div class="content">
+                <h3>new nike airmac shoes</h3>
+                <div class="stars">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </div>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Fugit officiis omnis quo laboriosam velit culpa ex illo, error enim nostrum?
+                </p>
+                <div class="price">$90 <span>$120</span></div>
+                <div class="select" style="text-align: center;">
+                    <select name="size" class="size">
+                        <option selected disabled>CHOOSE SIZE </option>
+                        <option value="39">39</option>
+                        <option value="40">40</option>
+                        <option value="41">41</option>
+                        <option value="42">42</option>
+                        <option value="43">43</option>
+                        <option value="44">44</option>
+                    </select>
+                </div>
+                <a class="btn multilang" id="ADD_TO_CART" onclick="addCart('sp016', this.previousSibling.parentNode)" style="width: 220px; text-align: center;">add to cart</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="image-container">
+                <div class="small-image">
+                    <img src="img/product5/1.jpg" alt="" class="featured-image-4">
+                    <img src="img/product5/2.jpg" alt="" class="featured-image-4">
+                    <img src="img/product5/3.jpg" alt="" class="featured-image-4">
+                    <img src="img/product5/4.jpg" alt="" class="featured-image-4">
+                </div>
+                <div class="big-image">
+                    <img src="img/product5/1.jpg" alt="" class="big-image-4">
+                </div>
+            </div>
+            <div class="content">
+                <h3>new nike airmac shoes</h3>
+                <div class="stars">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </div>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Fugit officiis omnis quo laboriosam velit culpa ex illo, error enim nostrum?
+                </p>
+                <div class="price">$90 <span>$120</span></div>
+                <div class="select" style="text-align: center;">
+                    <select name="size" class="size">
+                        <option selected disabled>CHOOSE SIZE </option>
+                        <option value="39">39</option>
+                        <option value="40">40</option>
+                        <option value="41">41</option>
+                        <option value="42">42</option>
+                        <option value="43">43</option>
+                        <option value="44">44</option>
+                    </select>
+                </div>
+                <a class="btn multilang" id="ADD_TO_CART" onclick="addCart('sp017', this.previousSibling.parentNode)" style="width: 220px; text-align: center;">add to cart</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="image-container">
+                <div class="small-image">
+                    <img src="img/product6/1.jpg" alt="" class="featured-image-5">
+                    <img src="img/product6/2.jpg" alt="" class="featured-image-5">
+                    <img src="img/product6/3.jpg" alt="" class="featured-image-5">
+                    <img src="img/product6/4.jpg" alt="" class="featured-image-5">
+                </div>
+                <div class="big-image">
+                    <img src="img/product6/1.jpg" alt="" class="big-image-5">
+                </div>
+            </div>
+            <div class="content">
+                <h3>new nike airmac shoes</h3>
+                <div class="stars">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </div>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Fugit officiis omnis quo laboriosam velit culpa ex illo, error enim nostrum?
+                </p>
+                <div class="price">$90 <span>$120</span></div>
+                <div class="select" style="text-align: center;">
+                    <select name="size" class="size">
+                        <option selected disabled>CHOOSE SIZE </option>
+                        <option value="39">39</option>
+                        <option value="40">40</option>
+                        <option value="41">41</option>
+                        <option value="42">42</option>
+                        <option value="43">43</option>
+                        <option value="44">44</option>
+                    </select>
+                </div>
+                <a class="btn multilang" id="ADD_TO_CART" onclick="addCart('sp018', this.previousSibling.parentNode)" style="width: 220px; text-align: center;">add to cart</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="image-container">
+                <div class="small-image">
+                    <img src="img/product7/2.jpg" alt="" class="featured-image-6">
+                    <img src="img/product7/1.jpg" alt="" class="featured-image-6">
+                    <img src="img/product7/4.jpg" alt="" class="featured-image-6">
+                    <img src="img/product7/3.jpg" alt="" class="featured-image-6">
+                </div>
+                <div class="big-image">
+                    <img src="img/product7/2.jpg" alt="" class="big-image-6">
+                </div>
+            </div>
+            <div class="content">
+                <h3>CONVERSER X GOLF WANG </h3>
+                <div class="stars">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </div>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Fugit officiis omnis quo laboriosam velit culpa ex illo, error enim nostrum?
+                </p>
+                <div class="price">$90 <span>$120</span></div>
+                <div class="select" style="text-align: center;">
+                    <select name="size" class="size">
+                        <option selected disabled>CHOOSE SIZE </option>
+                        <option value="39">39</option>
+                        <option value="40">40</option>
+                        <option value="41">41</option>
+                        <option value="42">42</option>
+                        <option value="43">43</option>
+                        <option value="44">44</option>
+                    </select>
+                </div>
+                <a class="btn multilang" id="ADD_TO_CART" onclick="addCart('sp019', this.previousSibling.parentNode)" style="width: 220px; text-align: center;">add to cart</a>
+            </div>
+        </div>
+    </section>
+    <section class="news" id="news">
+        <div class="content">
+            <h3 class="multilang" id="HEAD_NEWS_UPDATE">CẬP NHẬT TIN TỨC HẰNG TUẦN</h3>
+            <p class="multilang" id="CONTENTS_NEWS_UPDATE">
+                NẾU BẠN MUỐN NHẬN ĐƯỢC THÔNG TIN SỚM VỀ NHỮNG MẶT HÀNG BẠN YÊU THÍCH.
+                NHỮNG MẶT HÀNG MỚI, CÓ THỂ ĐỂ LẠI EMAIL DƯỚI ĐẤY !! 
+            </p>
+            <form action="">
+                <input type="email" placeholder="Vui lòng nhập email tại đây" class="email multilang" id="PLACEHOLDER_EMAIL">
+                <input type="submit" value="save" class="btn">
+            </form>
+        </div>
+    </section>
+    <script src="./js/script.js"></script>
+    <script src="./js/labels.js"></script>
+    <script src="./js/sw_lang.js"></script>
+    <script src="./js/toastr_config.js"></script>
+    <script src="./js/add_to_cart.js"></script>
+    <script src="./js/preloader.js"></script>
+    <script src="./js/search.js"></script>
+</body>
+</html>
